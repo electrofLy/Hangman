@@ -1,20 +1,60 @@
 package darkone.hangman;
-        import android.content.Context;
-        import android.graphics.Canvas;
-        import android.graphics.Color;
-        import android.graphics.Paint;
-        import android.view.View;
 
-class DrawHangman extends View {
+/**
+ * Created by electrofly on 18.1.2015 г..
+ */
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.Display;
+
+import java.lang.Object;
+
+public class DrawHangman extends View {
     Paint paint = new Paint();
+
     public DrawHangman(Context context) {
         super(context);
         paint.setColor(Color.BLACK);
-    }
-    @Override
-    public void onDraw(Canvas canvas) {
-        canvas.drawLine(50, 100, 600, 600, paint);
-        canvas.drawLine(50, 550, 770, 0, paint);
+        paint.setStrokeWidth(10);
     }
 
+    public void caseMen(Canvas canvas, int n) {
+        switch (n) {
+            case 1:
+                canvas.drawLine(canvas.getWidth() / 2, canvas.getHeight() / 2, canvas.getWidth() / 2 * 2, canvas.getHeight() / 2, paint);
+                break;
+            case 2:
+                canvas.drawLine(canvas.getWidth() / 4 * 3, canvas.getHeight() / 2, canvas.getWidth() / 4 * 3, 0, paint);
+                break;
+            case 3:
+                canvas.drawLine(canvas.getWidth() / 4 * 3, 0, canvas.getWidth() / 3, 0, paint);
+                break;
+            case 4:
+                canvas.drawLine(canvas.getWidth() / 3, 0, canvas.getWidth() / 3, canvas.getHeight() / 10, paint);
+                break;
+            case 5:
+                canvas.drawCircle(canvas.getWidth() / 3, canvas.getHeight() / 7, 50, paint);
+                break;
+            case 6:
+                canvas.drawLine(canvas.getWidth() / 3, canvas.getHeight() / 8, canvas.getWidth() / 3, canvas.getHeight() / 3, paint);
+                break;
+            case 7:
+                canvas.drawLine(canvas.getWidth() / 3, canvas.getHeight() / 4, canvas.getWidth() / 5, canvas.getHeight() / 5, paint);
+                break;
+            case 8:
+                canvas.drawLine(canvas.getWidth() / 3, canvas.getHeight() / 4, canvas.getWidth() / 6 * 3 - 15, canvas.getHeight() / 5, paint);
+                break;
+            case 9:
+                canvas.drawLine(canvas.getWidth() / 3, canvas.getHeight() / 3, canvas.getWidth() / 5, canvas.getHeight() / 5 * 2, paint);
+                break;
+            case 10:
+                canvas.drawLine(canvas.getWidth() / 3, canvas.getHeight() / 3, canvas.getWidth() / 6 * 3 - 15, canvas.getHeight() / 5 * 2, paint);
+                break;
+        }
+    }
 }
